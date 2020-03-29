@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+
+{% block title %} | List {% endblock  %}
+
+{% block content %}
+{% if users %}
+<h1>Users List</h1>
+<div class="table__container">
+    <table>
+        <tbody>
+            <tr>
+                <th>Username</th>
+                <th>Birthday</th>
+                <th>Eligible</th>
+                <th>Random Number</th>
+                <th>BizzFuzz</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td><a href="{% url 'user' id=user.id %}">{{user.username}}</a></td>
+                <td>{{user.birth_date}}</td>
+                <td>{% allowed user.calculateAge %}</td>
+                <td>{{user.number}}</td>
+                <td>{% fizzbuzz user.number %}</td>
+                <td><a class="button__edit" href="{% url 'edit_user' id=user.id %}">Edit</a></td>
+                <td><a class="button__delete" href="{% url 'delete_user' id=user.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<p>Users list is empty</p>
+{% endif %}
+<div class="buttons__wrapper">
+    <div class="button__wrapper">
+        <a class="button__add" href="{% url 'add_user' %}">Add User</a>
+    </div>
+    <div class="button__wrapper">
+        <a class="button__edit" href="{% url 'generate_csv' %}">Download as csv</a>
+    </div>
+</div>
+
+{% endblock %}

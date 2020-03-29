@@ -1,0 +1,9 @@
+{% if messages %}
+  {% for message in messages %}
+    <div id="message" class="popup">
+      <p>
+        {{ message }}
+      </p>
+    </div>
+  {% endfor %}
+{% endif %}

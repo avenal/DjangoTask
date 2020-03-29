@@ -1,0 +1,49 @@
+ 
+{% extends 'base.html' %}
+
+{% block title %} | Edit {% endblock  %}
+
+{% block content %} 
+<section>
+  <div>
+    <a href="{% url 'index' %}">Back</a>
+    <div>
+      <h1>Edit user data</h1>
+    </div>
+    {% if user %}
+        <div>
+          <form action="{% url 'edit_user' id=user.id %}" method="POST">
+            {% csrf_token %}                    
+              <div>
+                <label for="birth_date">Birth Date</label>
+                <input type="date" name="birth_date" value={{user.birth_date|date:'Y-m-d'}} required>
+              </div>
+              <div>
+                <label for="username">Username</label>
+                <input type="text" name="username" value={{user.username}} required>
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" value={{user.email}} required>
+              </div>
+              <div>
+                <label for="number">Number</label>
+                <input type="number" name="number" max="100" min="0" value={{user.number}} required>
+              </div>
+              <div>
+                <label for="password2">Password</label>
+                <input type="password" name="password" required>
+              </div>
+              <div>
+                <label for="password">Confirm Password</label>
+                <input type="password" name="password2" required>
+              </div>
+              <div>
+                <button type="submit" class="button__add">Submit</button>
+              </div>
+          </form>
+        </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

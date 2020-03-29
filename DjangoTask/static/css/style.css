@@ -1,0 +1,137 @@
+*,
+*::after,
+*::before,
+body {
+    box-sizing: border-box;
+}
+
+body {
+    background: #E2E2E2;
+    color: rgb(14, 14, 14);
+    font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.table__container {
+    overflow-x: auto;
+}
+
+table {
+    margin: 32px 0 32px 0;
+    width: 100%;
+}
+
+th, td {
+    padding-right: 16px;
+    min-width: 80px;
+}
+th:last-of-type,
+td:last-of-type
+{
+    padding-right: 0;
+}
+
+.button__edit, .button__delete, .button__add {
+    padding: 8px 16px 8px 16px;
+    text-decoration: none;
+    color: rgb(200, 200, 200);
+    cursor: pointer;
+    border-radius: 30px;
+    border: 0;
+}
+
+.button__edit {
+    background-color: rgb(0, 45, 120);
+}
+
+.button__add {
+    background-color: rgb(45, 120, 0);
+}
+
+.button__delete {
+    background-color: rgb(90, 0, 10);
+}
+
+.buttons__wrapper {
+    display: block;
+}
+
+.button__wrapper {
+    margin-right: 16px;
+    display: initial;
+}
+
+.button__wrapper:last-of-type {
+    margin-right: 0;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 45, 120);
+    font-weight: 700;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form div {
+    margin: 16px 0 16px 0;
+}
+
+form div:last-of-type {
+    margin-bottom: 0;
+}
+
+input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    border-bottom: 1px solid rgb(14, 14, 14);
+    padding: 8px 0 8px 0;
+    font-size: 18px;
+    transition: border-bottom 0.5s ease-in;
+}
+
+input:hover, input:focus {
+    border-bottom: 1px solid rgb(45, 120, 0);
+    outline: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    margin: 16px 0 16px 0;
+}
+
+span {
+    font-weight: 700;
+}
+
+.popup {
+    padding: 16px 32px 16px 32px;
+    background-color: rgb(0, 45, 120);
+    color: rgb(200, 200, 200);
+    font-size: 24px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

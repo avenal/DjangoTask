@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+
+{% block title %} | User {% endblock  %}
+
+{% block content %}
+    <a href="{% url 'index' %}">Back</a>
+    {% if user %}
+        <ul>
+            <li><span>Username:</span> {{user.username}}</li>
+            <li><span>E-mail:</span> {{user.email}}</li>
+            <li><span>Date of birth:</span> {{user.birth_date}}</li>
+            <li><span>Age:</span> {{user.calculateAge}}</li>
+            <li><span>Eligible:</span> {% allowed user.calculateAge %}</li>
+            <li><span>Number:</span> {{user.number}}</li>
+            <li><span>BizzFuzz:</span> {% fizzbuzz user.number %}</li>
+        </ul>
+            <div class="buttons__wrapper">
+                <div class="button__wrapper">
+                    <a class="button__edit" href="{% url 'edit_user' id=user.id %}">Edit</a>
+                </div>
+                <div class="button__wrapper">
+                    <a class="button__delete" href="{% url 'delete_user' id=user.id %}">Delete</a>
+                </div>
+            </div>
+    {% endif %}
+{% endblock %}

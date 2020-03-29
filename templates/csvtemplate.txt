@@ -1,0 +1,4 @@
+{% load custom_tags %}
+"Username","Birthday","Eligible","Random Number","BizzFuzz"
+{% for u in data %}"{{u.username|addslashes}}","{{u.birth_date|addslashes}}","{% allowed u.calculateAge %}","{{u.number|addslashes}}","{% fizzbuzz u.number %}"
+{% endfor %}
