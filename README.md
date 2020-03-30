@@ -2,7 +2,8 @@
 How to install
 - git clone this repo
 - cd into cloned folder
-- create virtualenv && pip install -r requirements.txt
+- create virtualenv 
+- pip install -r requirements.txt
 - python manage.py migrate
 - python manage.py runserver
 - navigate to localhost:8000/
